@@ -124,4 +124,7 @@ fabric.properties
 *.class
 *.log
 
+### Other ###
+documentacion/*
+
 # End of https://www.toptal.com/developers/gitignore/api/linux,scala,intellij
