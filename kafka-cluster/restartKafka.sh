@@ -1,0 +1,20 @@
+#!/bin/bash
+rm -r ./data/
+mkdir -p ./data/zookeeper-1/conf
+mkdir -p ./data/zookeeper-2/conf
+mkdir -p ./data/zookeeper-3/conf
+mkdir -p ./data/zookeeper-1/logs
+mkdir -p ./data/zookeeper-2/logs
+mkdir -p ./data/zookeeper-3/logs
+mkdir -p ./data/zookeeper-1/data 
+mkdir -p ./data/zookeeper-2/data
+mkdir -p ./data/zookeeper-3/data
+mkdir -p ./data/zookeeper-1/datalog
+mkdir -p ./data/zookeeper-2/datalog
+mkdir -p ./data/zookeeper-3/datalog
+mkdir -p ./data/kafka-1/logs
+mkdir -p ./data/kafka-2/logs
+mkdir -p ./data/kafka-3/logs
+mkdir -p ./data/kafka-1/data
+mkdir -p ./data/kafka-2/data
+mkdir -p ./data/kafka-3/data
