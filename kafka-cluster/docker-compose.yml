@@ -13,6 +13,9 @@ services:
     network_mode: host
     extra_hosts:
       - "moby:127.0.0.1"
+    volumes:
+      - ./data/zookeeper-1/logs:/var/lib/zookeeper/log
+      - ./data/zookeeper-1/data:/var/lib/zookeeper/data
 
   zookeeper-2:
     image: confluentinc/cp-zookeeper:latest
@@ -26,6 +29,9 @@ services:
     network_mode: host
     extra_hosts:
       - "moby:127.0.0.1"
+    volumes:
+      - ./data/zookeeper-2/logs:/var/lib/zookeeper/log
+      - ./data/zookeeper-2/data:/var/lib/zookeeper/data
 
   zookeeper-3:
     image: confluentinc/cp-zookeeper:latest
@@ -39,6 +45,9 @@ services:
     network_mode: host
     extra_hosts:
       - "moby:127.0.0.1"
+    volumes:
+      - ./data/zookeeper-3/logs:/var/lib/zookeeper/log
+      - ./data/zookeeper-3/data:/var/lib/zookeeper/data
 
   kafka-1:
     image: confluentinc/cp-kafka:latest
@@ -53,6 +62,8 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:19092
     extra_hosts:
       - "moby:127.0.0.1"
+    volumes:
+      - ./data/kafka-1/data:/var/lib/kafka/data
 
   kafka-2:
     image: confluentinc/cp-kafka:latest
@@ -67,6 +78,8 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:29092
     extra_hosts:
       - "moby:127.0.0.1"
+    volumes:
+      - ./data/kafka-2/data:/var/lib/kafka/data
 
   kafka-3:
     image: confluentinc/cp-kafka:latest
@@ -81,3 +94,5 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:39092
     extra_hosts:
       - "moby:127.0.0.1"
+    volumes:
+      - ./data/kafka-3/data:/var/lib/kafka/data
