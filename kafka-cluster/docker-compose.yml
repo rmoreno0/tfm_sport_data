@@ -14,8 +14,10 @@ services:
     extra_hosts:
       - "moby:127.0.0.1"
     volumes:
-      - ./data/zookeeper-1/logs:/var/lib/zookeeper/log
+      - ./data/zookeeper-1/conf:/etc/kafka
+      - ./data/zookeeper-1/logs:/logs
       - ./data/zookeeper-1/data:/var/lib/zookeeper/data
+      - ./data/zookeeper-1/datalog:/var/lib/zookeeper/log
 
   zookeeper-2:
     image: confluentinc/cp-zookeeper:latest
@@ -30,8 +32,10 @@ services:
     extra_hosts:
       - "moby:127.0.0.1"
     volumes:
-      - ./data/zookeeper-2/logs:/var/lib/zookeeper/log
+      - ./data/zookeeper-2/conf:/etc/kafka
+      - ./data/zookeeper-2/logs:/logs
       - ./data/zookeeper-2/data:/var/lib/zookeeper/data
+      - ./data/zookeeper-2/datalog:/var/lib/zookeeper/log
 
   zookeeper-3:
     image: confluentinc/cp-zookeeper:latest
@@ -46,8 +50,10 @@ services:
     extra_hosts:
       - "moby:127.0.0.1"
     volumes:
-      - ./data/zookeeper-3/logs:/var/lib/zookeeper/log
+      - ./data/zookeeper-3/conf:/etc/kafka
+      - ./data/zookeeper-3/logs:/logs
       - ./data/zookeeper-3/data:/var/lib/zookeeper/data
+      - ./data/zookeeper-3/datalog:/var/lib/zookeeper/log
 
   kafka-1:
     image: confluentinc/cp-kafka:latest
@@ -63,6 +69,7 @@ services:
     extra_hosts:
       - "moby:127.0.0.1"
     volumes:
+      - ./data/kafka-1/logs:/var/log/kafka
       - ./data/kafka-1/data:/var/lib/kafka/data
 
   kafka-2:
@@ -79,6 +86,7 @@ services:
     extra_hosts:
       - "moby:127.0.0.1"
     volumes:
+      - ./data/kafka-2/logs:/var/log/kafka
       - ./data/kafka-2/data:/var/lib/kafka/data
 
   kafka-3:
@@ -95,4 +103,5 @@ services:
     extra_hosts:
       - "moby:127.0.0.1"
     volumes:
+      - ./data/kafka-3/logs:/var/log/kafka
       - ./data/kafka-3/data:/var/lib/kafka/data
