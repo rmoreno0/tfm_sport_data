@@ -126,5 +126,6 @@ fabric.properties
 
 ### Other ###
 documentacion/*
+kafka-cluster/data/*
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,scala,intellij
