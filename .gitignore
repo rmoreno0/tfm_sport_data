@@ -124,6 +124,9 @@ fabric.properties
 *.class
 *.log
 
+### Jupiter ###
+.ipynb_checkpoints
+
 ### Other ###
 documentacion/*
 kafka-cluster/data/*
