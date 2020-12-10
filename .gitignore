@@ -37,10 +37,10 @@
 # .idea/compiler.xml
 # .idea/jarRepositories.xml
 # .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
+.idea/*.iml
+.idea/modules
+*.iml
+*.ipr
 
 # CMake
 cmake-build-*/
@@ -127,5 +127,6 @@ fabric.properties
 ### Other ###
 documentacion/*
 kafka-cluster/data/*
+raw_data/*.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,scala,intellij
