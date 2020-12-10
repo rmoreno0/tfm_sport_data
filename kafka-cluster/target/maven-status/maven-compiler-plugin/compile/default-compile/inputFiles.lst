@@ -1,0 +1,5 @@
+/home/roberto/Proyectos/tfm_sport_data/kafka-cluster/src/main/java/serializers/JsonSerializer.java
+/home/roberto/Proyectos/tfm_sport_data/kafka-cluster/src/main/java/producer/SimplePartitioner.java
+/home/roberto/Proyectos/tfm_sport_data/kafka-cluster/src/main/java/serializers/JsonDeserializer.java
+/home/roberto/Proyectos/tfm_sport_data/kafka-cluster/src/main/java/producer/json/Json.java
+/home/roberto/Proyectos/tfm_sport_data/kafka-cluster/src/main/java/main/Main.java
