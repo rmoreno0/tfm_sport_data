@@ -21,12 +21,12 @@ public class Main{
         Thread[] producersSport = new Thread[idsFiles.length];
 
         for (int i = 0; i < idsFiles.length; i++) {
-            String fileHealth = "src/main/resources/health/" + idsFiles[i] + "_health.txt";
+            String fileHealth = "src/main/resources/health/" + idsFiles[i] + "_health.json";
             String keyProducerHealth = idsFiles[i] + "_HEALTH";
             producersHealth[i] = new Thread(new Json(KAFKA_HOST_1, TOPICHEALTH, fileHealth, keyProducerHealth));
             producersHealth[i].start();
 
-            String fileSport = "src/main/resources/sport/" + idsFiles[i] + "_sport.txt";
+            String fileSport = "src/main/resources/sport/" + idsFiles[i] + "_sport.json";
             String keyProducerSport = idsFiles[i] + "_SPORT";
             producersSport[i] = new Thread(new Json(KAFKA_HOST_2, TOPICSPORT, fileSport, keyProducerSport));
             producersSport[i].start();

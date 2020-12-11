@@ -6,10 +6,9 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import java.io.FileNotFoundException;
+
+import java.io.*;
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 
 // Clase Json: implementa la interfaz Runnable.
@@ -47,42 +46,23 @@ public class Json implements Runnable{
         // Instanciación de la clase ObjectMapper para generar un objeto mapper
         ObjectMapper mapper = new ObjectMapper();
 
-        // Definición de la variable br de tipo BufferedReader
-        BufferedReader br = null;
-
         try {
-            // Generación del objeto BufferedReader y lectura de la primera linea del fichero
-            br = new BufferedReader(new FileReader(this.fileRead));
-            String textLine = br.readLine();
+            File file = new File(this.fileRead);
+            JsonNode arrayJsonFile = mapper.readValue(file, JsonNode.class);
+            Iterator<JsonNode>  iteratorJsonFile = arrayJsonFile.iterator();
+            while(iteratorJsonFile.hasNext()) {
 
-            // Mientras que no se llegue al final de fichero
-            while(textLine != null){
-
-                // Se genera una variable de tipo JsonNode y se envía en intervalos de 1 segundo mensajes al topic de Kafka
-                JsonNode actualObj = mapper.readTree(textLine);
-                System.out.println("Sending message with: " + this.key_producer);
-                producer.send(new ProducerRecord<>(this.topic, this.key_producer, actualObj));
+                System.out.println("Sending message with key: " + this.key_producer);
+                producer.send(new ProducerRecord<>(this.topic, this.key_producer, iteratorJsonFile.next()));
                 Thread.sleep(1000);
-                textLine = br.readLine();
             }
-        }
-        catch (FileNotFoundException e) {
-            System.out.println("Error: Fichero no encontrado.");
-            System.out.println(e.getMessage());
-        }
-        catch(Exception e) {
+        } catch (IOException e) {
             System.out.println("Error: Fallo en la lectura del fichero.");
             System.out.println(e.getMessage());
         }
-        finally {
-            try {
-                if(br != null)
-                    br.close();
-            }
-            catch (Exception e) {
-                System.out.println("Error: Fallo al cerrar el fichero.");
-                System.out.println(e.getMessage());
-            }
+        catch(Exception e) {
+            System.out.println("Error: Fallo en la ejecución.");
+            System.out.println(e.getMessage());
         }
 
         producer.flush();
