@@ -129,7 +129,7 @@ fabric.properties
 
 ### Other ###
 documentacion/*
-kafka-cluster/data/*
+kafka_cluster/data/*
 raw_data/*.txt
 raw_data/*.json
 
