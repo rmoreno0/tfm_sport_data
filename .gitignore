@@ -132,5 +132,6 @@ documentacion/*
 kafka_cluster/data/*
 raw_data/*.txt
 raw_data/*.json
+.env
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,scala,intellij
